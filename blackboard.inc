@@ -74,6 +74,12 @@ static
 forward OnPlayerEnterBlackboard(playerid, boardid);
 forward OnPlayerExitBlackboard(playerid, boardid);
 
+static _GetXYInDirection(& Float: X, & Float: Y, Float: Angle, Float: distance = 1.0)
+{
+    X -= (floatsin(Angle, degrees) * distance);
+    Y += (floatcos(Angle, degrees) * distance);
+}
+
 //******************************************************************************
 
 /*
@@ -90,7 +96,7 @@ stock CreateBlackboard(Float:x, Float:y, Float:z, Float:rx = 0.0, Float:ry = 0.0
 		SetObjectColour(Writable_BlackBoard[idx][boardObject], 1, 0xFF333333);
 		SetInvisibleTexture(Writable_BlackBoard[idx][boardObject], 2);
 
-        GetXYInDirection(x, y, rz, 0.02625);
+        _GetXYInDirection(x, y, rz, 0.02625);
 		//x + 0.02625, y - 0.12687
 		
 		Writable_BlackBoard[idx][boardText] = CreateDynamicObject(19327, x, y, z + 0.07144, rx, ry, rz, worldid, interiorid);
