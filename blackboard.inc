@@ -240,7 +240,7 @@ hook OnPlayerText(playerid, text[])
 		SetDynamicObjectMaterialText(Writable_BlackBoard[boardid][boardText], 0, string, OBJECT_MATERIAL_SIZE_512x256, "Comic Sans MS",
 											.fontsize = 30, .bold = 1, .fontcolor = 0xCCFFFFFF,
 											.textalignment = 0);
-		return 0;
+		return ~0;
 	}
 
 	return 1;
